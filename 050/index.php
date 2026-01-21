@@ -258,3 +258,49 @@ $rezultatasMatch = match ($kintamasisMatch) {
 };
 echo $rezultatasMatch;
 echo '<br><hr><br>';
+
+
+$favoriteFood = 'lasagna';
+$price = 5;
+
+echo 'My favorite food is ' . $favoriteFood . ' and it costs ' . ' $' . $price;
+
+echo '<br><hr><br>';
+
+echo "My favorite food is $favoriteFood and it costs $$price";
+
+echo '<br><hr><br>';
+
+
+$items = rand(1, 10);
+$pricePerItem = 4.5;
+
+$total = $items * $pricePerItem;
+
+echo "Items: $items <br>";
+echo "Total sum: $$total <br>";
+
+if ($total > 25) {
+    echo "Total is Too expensive";
+} else {
+    echo "I will buy it!";
+}
+
+echo "<br><br><hr><br><br>";
+
+
+$items2 = rand(1, 10);
+$pricePerItem2 = 5.73;
+
+$total2 = $items2 * $pricePerItem2;
+
+echo "Items: $items2 <br>";
+echo "Total sum: $$total2 <br>";
+
+if ($items2 > 8 && $total2 < 40) {
+    echo "You get a bulk discount!";
+} else {
+    echo "No discount for you!";
+}
+
+
