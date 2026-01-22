@@ -3,7 +3,7 @@
 $backgroundColor = '#444';
 $textColor = 'white';
 echo "<body style='background-color: $backgroundColor; color: $textColor; font-size: 24px; line-height: 1.5;
-margin: 0 35px; column-count: 2; column-gap: 50px; column-fill: auto;
+margin: 0 35px; margin-top: 25px; column-count: 2; column-gap: 50px; column-fill: auto;
 '>";
 
 
@@ -38,14 +38,14 @@ $age = $currentYear - $yearOfBirth;
 echo "Vardas: $name <br>";
 echo "Pavardė: $surname <br>";
 echo "Gimimo metai: $yearOfBirth <br>";
-echo "Dabartiniai metai: $currentYear <br><hr>";
+echo "Dabartiniai metai: $currentYear <br><br>";
 
 echo "Prisistatymas: <br> Aš esu $name $surname. Man yra $age metai.";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-echo "<br><br><br> Task 2 <br><hr><br>";
+echo "<br><br><br><hr> Task 2 <br><hr><br>";
 /*  ======== TASK 2 ========
     Naudokite funkcija rand(). 
     
@@ -79,7 +79,7 @@ if ($var1 == 0 || $var2 == 0) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-echo "<br><br><br> Task 3 <br><hr><br>";
+echo "<br><br><br><hr> Task 3 <br><hr><br>";
 /*  ======== TASK 3 ========
     Naudokite funkcija rand(). 
     
@@ -123,11 +123,9 @@ $vidurinis = null;
 //     $vidurinis = $k3;
 // }
 
-if (($k1 >= $k2 && $k1 <= $k3) || 
-    ($k1 <= $k2 && $k1 >= $k3)) {
+if (($k1 >= $k2 && $k1 <= $k3) || ($k1 <= $k2 && $k1 >= $k3)) {
     $vidurinis = $k1;
-} else if (($k2 >= $k1 && $k2 <= $k3) ||
-    ($k2 <= $k1 && $k2 >= $k3)) {
+} else if (($k2 >= $k1 && $k2 <= $k3) || ($k2 <= $k1 && $k2 >= $k3)) {
     $vidurinis = $k2;
 } else {
     $vidurinis = $k3;
@@ -149,7 +147,7 @@ echo "Vidurinė reikšmė: $vidurinis";
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-echo "<br><br><br> Task 4 <br><hr><br>";
+echo "<br><br><br><hr> Task 4 <br><hr><br>";
 /*  ======== TASK 4 ========
     Įvedami skaičiai -a, b, c - kraštinių ilgiai, trys 
     kintamieji (naudokite rand() funkcija nuo 1 iki 10). 
@@ -179,7 +177,7 @@ if (!($a + $b > $c) || !($a + $c > $b) || !($b + $c > $a)) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-echo "<br><br><br> Task 5 <br><hr><br>";
+echo "<br><br><br><hr> Task 5 <br><hr><br>";
 /*  ======== TASK 5 ========
     Sukurkite keturis kintamuosius ir rand() funkcija 
     sugeneruokite jiems  reikšmes nuo 0 iki 2. 
@@ -233,11 +231,11 @@ if ($kint4 == 0) {
     $dvejetai ++;
 }
 
-echo "Pirmas sk: $kint1 <br> Antras sk: $kint2 <br> Trečias sk: $kint3 <br> Ketvirtas sk: $kint4 <br><hr>";
+echo "Pirmas sk: $kint1 <br> Antras sk: $kint2 <br> Trečias sk: $kint3 <br> Ketvirtas sk: $kint4 <br><br>";
 
-echo "Kiek nulių: $nuliai <br><hr>";
-echo "Kiek vienetų: $vienetai <br><hr>";
-echo "Kiek dvejetų: $dvejetai <br><hr>";
+echo "Kiek nulių: $nuliai <br>";
+echo "Kiek vienetų: $vienetai <br>";
+echo "Kiek dvejetų: $dvejetai <br>";
 
 
 
