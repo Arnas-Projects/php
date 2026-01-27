@@ -3,7 +3,7 @@
 $backgroundColor = '#444';
 $textColor = 'white';
 echo "<body style='background-color: $backgroundColor; color: $textColor; font-size: 24px; line-height: 1.5;
-margin: 0 35px; margin-top: 25px; column-count: 2; column-gap: 50px; column-fill: auto;
+margin: 0 35px; margin-top: 25px; column-gap: 50px; column-fill: auto;
 '>";
 
 
@@ -236,8 +236,6 @@ echo "Pirmas sk: $kint1 <br> Antras sk: $kint2 <br> Trečias sk: $kint3 <br> Ket
 echo "Kiek nulių: $nuliai <br>";
 echo "Kiek vienetų: $vienetai <br>";
 echo "Kiek dvejetų: $dvejetai <br>";
-
-
 
 
 
