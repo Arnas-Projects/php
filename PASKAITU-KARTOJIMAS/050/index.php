@@ -201,3 +201,35 @@ if ($jonoTaskai == $petroTaskai) {
 }
 
 echo '<br><br>';
+
+$vienas = 1;
+$rezultatas = 1 == $vienas ? 'Yes' : 'No'; // $rezultatas yra 'Yes'
+echo $rezultatas, '<br>';
+
+$rezultatas = 3 == $vienas ? 'Yes' : 'No'; // $rezultatas yra 'No'
+echo $rezultatas, '<br><hr>';
+
+// Priskiriamoji sąlyga su priskiriamąja sąlyga viduje
+$kintamasis = 5;
+$rezultatas = $kintamasis < 3 ? 'Mažiau nei 3' : ($kintamasis > 7 ? 'Daugiau nei 7' : 'Nuo 3 iki 7'); // $rezultatas yra 'Nuo 3 iki 7'
+
+echo $rezultatas;
+echo '<br><hr><br>';
+
+// Priskiriamoji sąlyga su null coalescing operatoriumi
+// $var5 = null;
+$result = $var5 ?? 'Kintamasis yra null arba nenurodytas';
+echo $result;
+echo '<br><hr>';
+
+// Priskyrimas su match operatoriumi (PHP 8.0+)
+
+$kintamasisMatch = 3;
+$rezultatasMatch = match ($kintamasisMatch) {
+    1 => 'Viena',
+    2 => 'Du',
+    3 => 'Trys',
+    default => 'Kitas skaičius',
+};
+echo $rezultatasMatch;
+echo '<br><hr><br>';
