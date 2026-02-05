@@ -1,0 +1,52 @@
+<?php
+
+class Zveris2 extends Miskas2 implements Fauna, Fauna2
+{
+
+    public $vardas;
+    public $dangus = 'Žydras';
+
+    public static $kas = 'Uodega';
+
+    public function __construct($vardas)
+    {
+        $this->vardas = $vardas;
+    }
+
+    public function valio()
+    {
+        echo '<h2> Žvėriukas... </h2>';
+    }
+
+    public function grybai($va)
+    {
+        echo '<h2> Grybai... </h2>';
+        echo self::MU;
+    }
+
+    public function barsukai()
+    {
+        
+    }
+
+    public function kiaunes()
+    {
+        
+    }
+
+    public function barsukai2()
+    {
+        
+    }
+
+    public function kiaunes2()
+    {
+        
+    }
+
+    public function musmires()
+    {
+
+    }
+
+};

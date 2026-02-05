@@ -1,6 +1,7 @@
 <?php
 
-class Miskas {
+class Miskas
+{
 
     public $plotas = 500;
     public $pavadinimas = 'Juoda Giria';
@@ -12,5 +13,4 @@ class Miskas {
     {
         echo '<h2> Valio </h2>';
     }
-
 };

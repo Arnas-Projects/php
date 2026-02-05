@@ -17,5 +17,4 @@ class Zveris extends Miskas
     {
         echo '<h2> Mehhh... </h2>';
     }
-    
 };
