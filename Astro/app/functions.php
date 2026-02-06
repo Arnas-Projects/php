@@ -47,7 +47,12 @@ function homeController()
 
 function noteController()
 {
-    return view('note');
+    $pageData = [];
+
+    $pageData['title'] = 'Note';
+
+    return view('note', $pageData);
+
 }
 
 function createController()
