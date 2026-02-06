@@ -106,3 +106,124 @@ $masyvas4[14] = 108;
 $masyvas4[] = 222; // push į masyvą, indeksas bus max +1
 
 print_r($masyvas4);
+
+echo '<br>';
+
+$zmogus = [
+    'vardas' => 'Jeronimas',
+    'auto' => 'Cadillac',
+    'amzius' => 55
+];
+
+print_r($zmogus);
+
+echo '<br>';
+
+// reikia sukurti masyvą, kuriame būtų 10 reikšmių 0, 2, 4, 6... 18
+
+$arr = [];
+
+for ($i = 0; $i <= 18; $i += 2) {
+    $arr[] = $i;
+};
+
+print_r($arr);
+echo '<br>';
+
+
+// Dėstytojo sprendimas
+$arr2 = [];
+
+for ($i = 0; $i < 10; $i++) {
+    $arr2[] = $i * 2;
+};
+
+print_r($arr2);
+echo '<hr><br>';
+
+// ----------------------------------------
+
+echo 'FOREACH <br><br>';
+
+// foreach su reikšme
+foreach ($zmogus as $value) {
+    echo $value . '<br>';
+};
+
+echo '<br>';
+
+// foreach su indeksu ir reikšme
+foreach ($zmogus as $index => $value) {
+    echo $index . ': ' . $value . '<br>';
+};
+
+echo '<br>';
+
+
+$masyvas123 = range(1, 5); // padaro masyvą
+
+print_r($masyvas123);
+
+foreach ($masyvas123 as $i) {
+    echo $i . '<br>';
+}
+
+
+echo '<br>';
+
+$arrRange = range('a', 'z');
+
+print_r($arrRange);
+
+foreach ($arrRange as $i) {
+    echo $i . '<br>';
+}
+
+// pagal reikšmę ir pagal nuorodą
+
+echo '<br>--------------<br>';
+
+$m1 = [1, 2, 3];
+$m2 = $m1; // perdavimas pagal reikšmę
+
+$m1[] = 4;
+
+print_r($m1);
+print_r($m2);
+
+
+echo '<br>--------------<br>';
+
+$m3 = [1, 2, 3];
+$m4 = &$m3; // perdavimas pagal nuorodą
+
+$m3[] = 4;
+
+print_r($m3);
+print_r($m4);
+
+
+echo '<br>--------------<br>';
+
+$colors = ['Red', 'Green', 'Blue', 'Yellow'];
+
+foreach ($colors as &$color) {}; // $color yra perduodamas pagal nuorodą (by reference)
+
+// reikėtų nepamiršti panaudotą, nebereikalingą nuorodą "užmušt"
+
+unset($color); // unset --> panaikina nuorodą
+
+foreach ($colors as $color) { // $color yra perduodamas pagal reikšmę (by value)
+    echo $color . '<br>';
+};
+
+
+echo '<br>--------------<br>';
+
+$fun = function ($element) {
+    return $element . ' ***';
+};
+
+$naujasZmogus = array_map($fun, $zmogus);
+
+print_r($naujasZmogus);
