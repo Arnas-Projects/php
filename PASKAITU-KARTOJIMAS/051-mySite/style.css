@@ -64,6 +64,7 @@ nav a:hover {
 .hero h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    transition: color 0.3s;
 }
 
 .btn {
@@ -138,4 +139,56 @@ footer {
     text-align: center;
     padding: 2rem;
     margin-top: 3rem;
+}
+
+.trends-list {
+    list-style: none;
+    padding: 0;
+}
+
+.trends-list article.trend-item {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.trends-list article.trend-item img {
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.trends-list article.trend-item h3 {
+    margin-bottom: 0.5rem;
+    color: #764ba2;
+}
+
+.trends-list article.trend-item p {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+header.simple-header {
+    background: linear-gradient(135deg, #e366ea 0%, #44196e 100%);
+    padding: 1.5rem 0;
 }
