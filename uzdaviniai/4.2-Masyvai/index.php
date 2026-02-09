@@ -22,10 +22,7 @@ echo '<hr>3 užduotis<hr><br>';
 
 
 
-
-
-
-
+echo '<pre>';
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 /*
@@ -91,19 +88,30 @@ echo '<hr>5 užduotis<hr><br>';
 */
 echo '<hr>6 užduotis<hr><br>';
 
+$array1 = [];
+$array2 = [];
+
+while (count($array1) < 100) {
+
+    $randomSkaicius = rand(100, 999);
+
+    if (!in_array($randomSkaicius, $array1)) {
+        $array1[] = $randomSkaicius;
+    }
+};
 
 
+while (count($array2) < 100) {
 
+    $randomSkaicius = rand(100, 999);
 
+    if (!in_array($randomSkaicius, $array2)) {
+        $array2[] = $randomSkaicius;
+    }
+};
 
-
-
-
-
-
-
-
-
+print_r($array1);
+print_r($array2);
 
 
 
@@ -116,6 +124,8 @@ echo '<hr>6 užduotis<hr><br>';
     bet nėra antrame 6 uždavinio masyve.
 */
 echo '<hr>7 užduotis<hr><br>';
+
+$newArray = [];
 
 
 
@@ -140,10 +150,24 @@ echo '<hr>7 užduotis<hr><br>';
 */
 echo '<hr>8 užduotis<hr><br>';
 
+$newArray = array_intersect($array1, $array2);
+
+// $newArray = array_values($newArray);
+
+print_r($newArray);
 
 
+// ALTERNATYVA
+$newArray = [];
 
+foreach ($array1 as $value) {
+    
+    if (in_array($value, $array2)) {
+        $newArray[] = $value;
+    }
+}
 
+print_r($newArray);
 
 
 
@@ -195,4 +219,3 @@ echo '<hr>9 užduotis<hr><br>';
     Penktas - trečio ir ketvirto suma ir t.t.
 */
 echo '<hr>10 užduotis<hr><br>';
-

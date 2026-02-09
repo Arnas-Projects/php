@@ -76,11 +76,10 @@ echo '<hr>2 užduotis c)<hr><br>';
 $indexValuesSum = 0;
 
 foreach ($masyvasA as $index => $value) {
-    
+
     if ($index % 2 === 0) { // visos falsey reikšmės yra "pavojingos" ir geriau jas lyginti su ===
         $indexValuesSum += $value;
     }
-
 };
 
 echo "Suma: $indexValuesSum";
@@ -96,15 +95,14 @@ echo '<br><br>';
 */
 echo '<hr>2 užduotis d)<hr><br>';
 
+$newArray = [];
 
+foreach ($masyvasA as $index => $value) {
 
+    $newArray[] = $value - $index;
+}
 
-
-
-
-
-
-
+print_r($newArray);
 
 
 
@@ -117,17 +115,27 @@ echo '<hr>2 užduotis d)<hr><br>';
 */
 echo '<hr>2 užduotis e)<hr><br>';
 
+// ALTERNATYVA
+
+// $limitIndex = 39;
+
+// foreach ($newArray as $index => $value) {
+
+//     if (count($newArray) > $limitIndex) {
+//         break;
+//     }
+
+//     $newArray[] = rand(5, 25);
+// }
+
+// print_r($newArray);
 
 
+for ($i = 0; $i < 10; $i++) {
+    $newArray[] = rand(5, 25);
+}
 
-
-
-
-
-
-
-
-
+print_r($newArray);
 
 
 
@@ -142,18 +150,24 @@ echo '<hr>2 užduotis e)<hr><br>';
 */
 echo '<hr>2 užduotis f)<hr><br>';
 
+$porinisMasyvas = [];
+$neporinisMasyvas = [];
 
+foreach ($newArray as $index => $value) {
+    if ($index % 2 === 0) {
+        $porinisMasyvas[] = $value;
+    } else {
+        $neporinisMasyvas[] = $value;
+    }
+}
 
+echo 'Porinis masyvas: <br>';
+print_r($porinisMasyvas);
 
+echo '<br>';
 
-
-
-
-
-
-
-
-
+echo 'Neporinis masyvas: <br>';
+print_r($neporinisMasyvas);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -165,19 +179,14 @@ echo '<hr>2 užduotis f)<hr><br>';
 */
 echo '<hr>2 užduotis g)<hr><br>';
 
+foreach ($masyvasA as $index => $value) {
 
+    if ($index % 2 === 0 && $value > 15) {
+        $masyvasA[$index] = 0;
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
+print_r($masyvasA);
 
 
 
@@ -190,17 +199,21 @@ echo '<hr>2 užduotis g)<hr><br>';
 */
 echo '<hr>2 užduotis h)<hr><br>';
 
+$foundIndex = -1;
+$foundValue = $masyvasA[0];
 
+foreach ($masyvasA as $index => $value) {
+    
+    if ($value > 10) {
+        $foundIndex = $index;
+        $foundValue = $value;
+        break;
+    }
+}
 
+echo "Indeksas: $foundIndex | Reikšmė: $foundValue";
 
-
-
-
-
-
-
-
-
+echo '<br><br>';
 
 
 
@@ -212,3 +225,16 @@ echo '<hr>2 užduotis h)<hr><br>';
     visus elementus turinčius porinį indeksą;
 */
 echo '<hr>2 užduotis i)<hr><br>';
+
+foreach ($masyvasA as $index => $value) {
+
+    if ($index % 2 === 0) {
+        unset($masyvasA[$index]);
+    }
+}
+
+
+$masyvasA = array_values($masyvasA); // su array_values vėl gražiai sutvarkau indeksus, kad eitų iš eilės. Padeda, jei ateity reikia dar ciklinti masyvą
+
+print_r($masyvasA);
+
