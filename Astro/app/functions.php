@@ -17,7 +17,7 @@ function router()
     }
 
     if ('GET' == $method && $uri[0] == 'note') {
-        return noteController();
+        return noteController($uri[1]);
     }
 
     if ('GET' == $method && $uri[0] == 'create') {
@@ -45,15 +45,31 @@ function homeController()
     return view('home', $pageData);
 }
 
-function noteController()
+function noteController($id)
 {
     $pageData = [];
 
-    $pageData['title'] = 'Note';
+    // read from data/notes.json
+    $notes = json_decode(file_get_contents(DIR . 'data/notes.json'), true) ?? [];
+    // find note by id
+    $note = null;
+    foreach ($notes as $n) {
+        if ($n['id'] == $id) {
+            $note = $n;
+            break;
+        }
+    }
+    if (!$note) {
+        header('Location: ' . URL); // jeigu tokio id nerasta, grąžina į home
+        return '';
+    }
+
+    $pageData['note'] = $note;
+    $pageData['title'] = $note['title'] ?? 'Note';
 
     return view('note', $pageData);
-
 }
+
 
 function createController()
 {
@@ -77,7 +93,7 @@ function storeController()
     $notes[] = $storeData;
     // save back to data/notes.json
     file_put_contents(DIR . 'data/notes.json', json_encode($notes, JSON_PRETTY_PRINT));
-    
+
     header('Location: ' . URL);
     return '';
 }
