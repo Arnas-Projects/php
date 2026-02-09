@@ -1,0 +1,19 @@
+{
+    "name": "arnas/059-2",
+    "autoload": {
+        "psr-4": {
+            "AI\\GPT5\\": "biblioteka/",
+            "Ka\\Ziureti\\Dabar\\": "",
+            "Mano\\Ir\\Tik\\Mano\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Arnas-Projects",
+            "email": "coding.myprojects@gmail.com"
+        }
+    ],
+    "require": {
+        "ramsey/uuid": "^4.9"
+    }
+}
