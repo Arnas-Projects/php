@@ -53,4 +53,18 @@ function blogas_Pvz()
 
 blogas_Pvz();
 
-echo '<br>' . $kintamasisFunkcijoj;;
+echo '<br>' . $kintamasisFunkcijoj;
+
+echo '<br>-----------------------<br><br>';
+
+
+// ----------------------------------------------------------
+function vidutinis_Pvz($vardasA, &$kintamasisFunkcijojA)
+{
+    echo 'Ką tu? ' . $vardasA;
+    $kintamasisFunkcijojA = 102;
+}
+
+vidutinis_Pvz($vardas, $kintamasisFunkcijoj);
+
+echo '<br>' . $kintamasisFunkcijoj;
