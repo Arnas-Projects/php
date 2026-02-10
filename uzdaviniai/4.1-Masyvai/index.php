@@ -26,6 +26,26 @@ echo '<br>';
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 /*
+    2 užduotis - a)
+
+    Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
+*/
+echo '<hr>2 užduotis a)<hr><br>';
+
+$kiekReiksmiu = 0;
+
+foreach ($masyvasA as $value) {
+
+    if ($value > 10) {
+        $kiekReiksmiu++;
+    }
+}
+
+echo "Iš viso reikšmių >10 yra: $kiekReiksmiu";
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/*
     2 užduotis - b)
 
     Raskite didžiausią masyvo reikšmę ir jos 

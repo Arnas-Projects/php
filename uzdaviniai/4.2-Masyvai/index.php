@@ -15,36 +15,60 @@ echo '<body style="background-color: #444; color: white; font-size: 24px; line-h
 */
 echo '<hr>3 užduotis<hr><br>';
 
+$raides = range('A', 'D');
 
+$arr = [];
 
+$kiekA = 0;
+$kiekB = 0;
+$kiekC = 0;
+$kiekD = 0;
 
+for ($i = 0; $i < 200; $i++) {
 
+    $vienaRaide = $raides[array_rand($raides)];
+    $arr[] = $vienaRaide;
 
+    if ($vienaRaide === 'A') {
+        $kiekA++;
+    }
 
+    if ($vienaRaide === 'B') {
+        $kiekB++;
+    }
+
+    if ($vienaRaide === 'C') {
+        $kiekC++;
+    }
+
+    if ($vienaRaide === 'D') {
+        $kiekD++;
+    }
+};
+
+// $kiekRaidziu = array_count_values($arr);
 
 echo '<pre>';
+print_r($arr);
+echo '<br>';
+// print_r($kiekRaidziu);
+
+echo "Kiek A: $kiekA <br>";
+echo "Kiek B: $kiekB <br>";
+echo "Kiek C: $kiekC <br>";
+echo "Kiek D: $kiekD <br>";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 /*
     4 užduotis
     
-    Išrūšiuokite 3 uždavinio masyvą pagal abecėlę.
+    Išrūšiuokite 3 uždavinio masyvą pagal abėcėlę.
 */
 echo '<hr>4 užduotis<hr><br>';
 
+sort($arr);
 
-
-
-
-
-
-
-
-
-
-
-
-
+print_r($arr);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 /*
@@ -60,9 +84,30 @@ echo '<hr>4 užduotis<hr><br>';
 echo '<hr>5 užduotis<hr><br>';
 
 
+$arr1 = [];
+$arr2 = [];
+$arr3 = [];
 
 
+for ($i = 0; $i < 15; $i++) {
 
+    $raide1 = $raides[array_rand($raides)];
+    $raide2 = $raides[array_rand($raides)];
+    $raide3 = $raides[array_rand($raides)];
+
+    $arr1[] = $raide1;
+    $arr2[] = $raide2;
+    $arr3[] = $raide3;
+}
+
+echo 'Masyvas #1: ';
+print_r($arr1);
+
+echo 'Masyvas #2: ';
+print_r($arr2);
+
+echo 'Masyvas #3: ';
+print_r($arr3);
 
 
 
@@ -114,7 +159,6 @@ print_r($array1);
 print_r($array2);
 
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
 /*
     7 užduotis
@@ -127,18 +171,14 @@ echo '<hr>7 užduotis<hr><br>';
 
 $newArray = [];
 
+foreach ($array1 as $value) {
 
+    if (!in_array($value, $array2)) {
+        $newArray[] = $value;
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+print_r($newArray);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -161,7 +201,7 @@ print_r($newArray);
 $newArray = [];
 
 foreach ($array1 as $value) {
-    
+
     if (in_array($value, $array2)) {
         $newArray[] = $value;
     }
@@ -170,52 +210,20 @@ foreach ($array1 as $value) {
 print_r($newArray);
 
 
-
-
-
-
-
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
 /*
     9 užduotis
     
     Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 
-    6 uždavinio masyvo reikšmės, o jo reikšmės iš būtų 
+    6 uždavinio masyvo reikšmės, o jo reikšmės būtų iš 
     antrojo masyvo.
 */
 echo '<hr>9 užduotis<hr><br>';
 
+$newArray = [];
 
+foreach ($array1 as $index => $value) {
+    $newArray[$value] = $array2[$index];
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-    10 užduotis
-    
-    Sugeneruokite 10 skaičių masyvą pagal taisyklę: 
-    Du pirmi skaičiai - atsitiktiniai nuo 5 iki 25. 
-    
-    Trečias - pirmo ir antro suma. 
-    
-    Ketvirtas - antro ir trečio suma. 
-    
-    Penktas - trečio ir ketvirto suma ir t.t.
-*/
-echo '<hr>10 užduotis<hr><br>';
+print_r($newArray);
