@@ -69,7 +69,7 @@ echo '<hr>3 užduotis<hr><br>';
 $var = md5(time());
 
 echo $var;
-
+echo '<br><br>';
 
 
 
@@ -125,3 +125,13 @@ echo '<hr>4 užduotis<hr><br>';
     uždavinio funkciją.
 */
 echo '<hr>5 užduotis<hr><br>';
+
+$masyvas = [];
+
+for ($i = 0; $i < 100; $i++) {
+    $masyvas[] = rand(33, 77);
+}
+
+echo '<pre>';
+print_r($masyvas);
+echo '</pre>';
