@@ -28,11 +28,11 @@ if (isset($_GET['color'])) {
 
 <body style="background:<?= $bgColor ?>">
 
-    <a href="trecias.php">Juodas fonas</a>
+    <a href="3-trecias.php">Juodas fonas</a>
 
     <br><br>
 
-    <form method="GET" action="trecias.php">
+    <form method="GET" action="3-trecias.php">
         <input type="text" name="color">
         <!-- <input type="text" name="ant_durniaus"> -->
         <button>Keisti</button>

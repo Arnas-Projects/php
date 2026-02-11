@@ -24,8 +24,8 @@ if (isset($_GET['color']) && $_GET['color'] == 1) {
 
 <body style="background:<?= $bgColor ?>">
 
-    <a href="pirmas.php">Juodas fonas</a>
-    <a href="pirmas.php?color=1">Raudonas fonas</a>
+    <a href="1-pirmas.php">Juodas fonas</a>
+    <a href="1-pirmas.php?color=1">Raudonas fonas</a>
 
 </body>
 

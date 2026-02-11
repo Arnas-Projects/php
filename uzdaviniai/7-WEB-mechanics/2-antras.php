@@ -29,7 +29,7 @@ if (isset($_GET['color'])) {
 
 <body style="background:<?= $bgColor ?>">
 
-<a href="antras.php">Juodas fonas</a>
+<a href="2-antras.php">Juodas fonas</a>
 
 </body>
 

@@ -31,8 +31,8 @@ if (isset($_GET['color']) && $_GET['color'] == '1') {
 
 <body>
 
-    <a href="web-mechanics.php">Black Background</a>
-    <a href="web-mechanics.php?color=1">Red Background</a>
+    <a href="1-first.php">Black Background</a>
+    <a href="1-first.php?color=1">Red Background</a>
 
     <p>Current color is: <?php echo $backgroundColor; ?></p>
 
