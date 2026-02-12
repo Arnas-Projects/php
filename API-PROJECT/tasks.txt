@@ -1,0 +1,93 @@
+POSTS
+USERS
+COMMENTS
+TODOS
+
+/ - home page
+/contacts - kontaktu puslapis
+/about-us - apie mus puslapis
+
+GET SINGLE:
+/posts/:id - puslapis, kuriame atvaizduojama vieno post informacija (pagal id)
+post.html
+post.js
+{
+    "userId": 1,
+    "id": 1,
+    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    "body": "quia"
+},
+
+
+
+/users/:id - puslapis, kuriame atvaizduojama vieno user informacija (pagal id)
+
+
+{
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+},
+
+
+
+/todos/:id - puslapis, kuriame atvaizduojama vieno todo informacija (pagal id)
+/comments/:id - puslapis, kuriame atvaizduojama vieno comment informacija (pagal id)
+
+
+
+
+
+
+GET ALL:
+www.api-projektas.com/posts - puslapis, kuriam atvaizduojami posts
+www.api-projektas.com/users - puslapis, kuriam atvaizduojami users
+www.api-projektas.com/comments - puslapis, kuriam atvaizduojami comments
+www.api-projektas.com/todos - puslapis, kuriam atvaizduojami todos
+
+[
+    {
+        "userId": 1,
+        "id": 1,
+        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        "body": "quia"
+    },
+]
+
+
+
+POST - CREATE:
+/posts/create - puslapis, kuriame galime sukurti naują post
+/users - puslapis, kuriame galime sukurti naują user
+/todos - puslapis, kuriame galime sukurti naują todo
+/comments - puslapis, kuriame galime sukurti naują comment
+
+PUT/PATCH - UPDATE:
+/posts/edit - puslapis, kuriame galime redaguoti seną (jau sukurtą) post
+/users/edit - puslapis, kuriame galime redaguoti seną (jau sukurtą) user
+/todos/edit - puslapis, kuriame galime redaguoti seną (jau sukurtą) todo
+/comments/edit - puslapis, kuriame galime redaguoti seną (jau sukurtą) comment
+
+?????
+/posts/delete - puslapis, kuriame galime ištrinti seną post
+/users/delete - puslapis, kuriame galime ištrinti seną user
+/todos/delete - puslapis, kuriame galime ištrinti seną todo
+/comments/delete - puslapis, kuriame galime ištrinti seną comment
