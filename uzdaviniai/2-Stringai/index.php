@@ -35,7 +35,6 @@ echo "Trumpesnis tekstas: $result";
     
     Vardą atspausdinti tik didžiosiom raidėm, 
     o pavardę tik mažosioms.
-
 */
 echo '<hr>2 užduotis<hr><br>';
 
@@ -105,7 +104,6 @@ echo $splittedNameActor2 . ' ' . $splittedSurnameActor2;
     sudarytą iš pirmų vardo ir pavardės kintamųjų raidžių. 
     
     Jį atspausdinti.
-
 */
 echo '<hr>3 užduotis<hr><br>';
 
@@ -233,8 +231,21 @@ for ($i = 0; $i < strlen($movie); $i++) {
     }
 }
 
-echo $kiekA;
+echo "$movie <br><br>";
+echo "Kiek 'A' ir a' raidžių: $kiekA";
 
+
+echo '<br><br>';
+
+
+// ALTERNATYVA (AI)
+
+$movie = '"An American in Paris"';
+
+$kiekA = substr_count(strtolower($movie), 'a');
+
+echo "$movie <br><br>";
+echo "Kiek 'A' ir 'a' raidžių: $kiekA";
 
 echo '<br><br>';
 
@@ -254,5 +265,195 @@ echo '<br><br>';
 */
 echo '<hr>7 užduotis<hr><br>';
 
+$movie1 = '"An American in Paris"';
+
+$deletedLetters1 = str_replace(['A', 'E', 'I', 'Y', 'O', 'U', 'a', 'e', 'i', 'y', 'o', 'u'], '', $movie1);
+
+echo "$movie1 <br>";
+echo 'Updated movie name: ' . $deletedLetters1 . '<br><br>';
 
 
+$movie2 = '"Breakfast at Tiffany\'s"';
+$movie3 = '"2001: A Space Odyssey"';
+$movie4 = '"It\'s a Wonderful Life"';
+
+$deletedLetters2 = str_replace(['A', 'E', 'I', 'Y', 'O', 'U', 'a', 'e', 'i', 'y', 'o', 'u'], '', $movie2);
+$deletedLetters3 = str_replace(['A', 'E', 'I', 'Y', 'O', 'U', 'a', 'e', 'i', 'y', 'o', 'u'], '', $movie3);
+$deletedLetters4 = str_replace(['A', 'E', 'I', 'Y', 'O', 'U', 'a', 'e', 'i', 'y', 'o', 'u'], '', $movie4);
+
+echo "$movie2 <br>";
+echo "Updated movie name: $deletedLetters2 <br><br>";
+
+echo "$movie3 <br>";
+echo "Updated movie name: $deletedLetters3 <br><br>";
+
+echo "$movie4 <br>";
+echo "Updated movie name: $deletedLetters4";
+
+echo '<br><br><br>';
+
+
+// ALTERNATYVA (AI)
+echo 'ALTERNATYVUS SPRENDIMAS: <br><br>';
+
+function istrintiRaides($text)
+{
+    $raides = ['a', 'e', 'i', 'y', 'o', 'u'];
+    return str_ireplace($raides, '', $text);
+}
+
+$movies = [
+    "An American in Paris",
+    "Breakfast at Tiffany's",
+    "2001: A Space Odyssey",
+    "It's a Wonderful Life"
+];
+
+foreach ($movies as $movie) {
+    echo "Movie: $movie <br>";
+    echo 'Updated movie name: ' . istrintiRaides($movie) . '<br><br>';
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+    8 užduotis
+    
+    Stringe, kurį generuoja toks kodas: 
+    'Star Wars: Episode '. str_repeat(' ', rand(0,5)) . rand(1,9) . ' - A New Hope'; 
+    
+    Surasti ir atspausdinti epizodo numerį.
+*/
+echo '<hr>8 užduotis<hr><br>';
+
+$code = 'Star Wars: Episode ' . str_repeat(' ', rand(0,5)) . rand(1,9) . ' - A New Hope';
+
+echo $code;
+
+$numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+foreach ($numbers as $number) {
+
+    for ($i = 0; $i < strlen($code); $i++) {
+        
+        if ($code[$i] == $number) {
+            $target = $number;
+        }
+    }
+}
+
+echo '<br>';
+echo "Epizodo nr: $target";
+
+echo '<br><br>';
+
+
+// ALTERNATYVA
+
+$code = 'Star Wars: Episode ' . str_repeat(' ', rand(0,5)) . rand(1,9) . ' - A New Hope';
+
+echo $code . '<br>';
+
+$target = '';
+
+for ($i = 0; $i < strlen($code); $i++) {
+
+    if (is_numeric($code[$i])) {
+        $target = $code[$i];
+        break;
+    }
+}
+
+echo "Epizodo nr: $target";
+echo '<br><br>';
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+    9 užduotis
+    
+    Suskaičiuoti kiek stringe “Don't Be a Menace to 
+    South Central While Drinking Your Juice in the Hood” 
+    yra žodžių trumpesnių arba lygių nei 5 raidės. 
+    
+    Pakartokite kodą su stringu “Tik nereikia gąsdinti 
+    Pietų Centro, geriant sultis pas save kvartale”.
+*/
+echo '<hr>9 užduotis<hr><br>';
+
+$movie = 'Don\'t Be a Menace to South Central While Drinking Your Juice in the Hood';
+
+echo "$movie <br>";
+
+$trinamSimbolius = preg_replace('/[^\p{L}\s]/', '', $movie);
+
+$split = explode(' ', $trinamSimbolius);
+
+$suma = 0;
+
+foreach ($split as $value) {
+
+    if (mb_strlen($value) <= 5) {
+        $suma++;
+    }
+}
+
+echo "Suma: $suma";
+
+echo '<br><br>';
+
+
+$movieLt = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
+
+echo "$movieLt <br>";
+
+$trinamSimbolius2 = preg_replace('/[^\p{L}\s]/', '', $movieLt);
+
+$split2 = explode(' ', $trinamSimbolius2);
+
+$suma2 = 0;
+
+foreach ($split2 as $value) {
+
+    if (mb_strlen($value) <= 5) {
+        $suma2++;
+    }
+}
+
+echo "Suma: $suma2";
+echo '<br><br>';
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+    10 užduotis
+    
+    Parašyti kodą, kuris generuotų atsitiktinį stringą 
+    iš lotyniškų mažųjų raidžių. 
+    
+    Stringo ilgis 3 simboliai.
+*/
+echo '<hr>10 užduotis<hr><br>';
+
+$raides = range('a', 'z');
+
+$zodis = array_rand($raides, 3);
+$result = $raides[$zodis[0]] . $raides[$zodis[1]] . $raides[$zodis[2]];
+
+echo $result;
+
+echo '<br><br>';
+
+
+// ALTERNATYVA
+
+$raides = range('a', 'z');
+$result = '';
+
+for ($i = 0; $i < 3; $i++) {
+
+    $index = rand(0, 25);
+    $result .= $raides[$index];
+}
+
+echo $result;
