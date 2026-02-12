@@ -223,13 +223,17 @@ echo '<br><br>';
 */
 echo '<hr>6 užduotis<hr><br>';
 
+$movie = '"An American in Paris"';
 
+$kiekA = 0;
 
+for ($i = 0; $i < strlen($movie); $i++) {
+    if ($movie[$i] == 'A' || $movie[$i] == 'a') {
+        $kiekA++;
+    }
+}
 
-
-
-
-
+echo $kiekA;
 
 
 echo '<br><br>';
