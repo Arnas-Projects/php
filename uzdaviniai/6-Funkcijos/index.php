@@ -1,6 +1,8 @@
 <?php
 
-echo '<body style="background-color: #444; color: white; font-size: 24px; line-height: 1.5;">';
+use Ramsey\Uuid\Type\Integer;
+
+echo '<body style="background-color: #444; color: white; font-family: monospace; font-size: 24px; line-height: 1.5;">';
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,22 +70,18 @@ echo '<hr>3 užduotis<hr><br>';
 
 $var = md5(time());
 
-echo $var;
-echo '<br><br>';
+// echo "Random stringas: $var";
+// echo '<br><br>';
 
+// function filtravimas($tekstas)
+// {
+//     return preg_replace_callback('/[0-9]+/', function($keitimas)
+//     {
+//         return '<h1>' . $keitimas[0] . '</h1>';
+//     }, $tekstas);
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
+// echo filtravimas($var);
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,17 +98,35 @@ echo '<br><br>';
 echo '<hr>4 užduotis<hr><br>';
 
 
+function skaiciuokle($argumentas)
+{
+    if (!is_int($argumentas)) {
+        echo "Klaida: šita reikšmė -> $argumentas <- nėra sveikas skaičius <br><br>";
+        return;
+    }
 
+    $kiekis = 0;
 
+    for ($daliklis = 2; $daliklis < $argumentas; $daliklis++) {
+        if ($argumentas % $daliklis === 0) {
+            $kiekis++;
+        }
+    }
 
+    return $kiekis;
+}
 
+$testNumber = 24.88;
+$result = skaiciuokle($testNumber);
 
+echo "Skaičius: $testNumber <br><br>";
+echo "Galimų daliklių kiekis: $result";
 
+if ($result === null) {
+    echo "nėra daliklių, nes $testNumber nėra sveikasis skaičius";
+}
 
-
-
-
-
+echo '<br><br>';
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -132,6 +148,24 @@ for ($i = 0; $i < 100; $i++) {
     $masyvas[] = rand(33, 77);
 }
 
-echo '<pre>';
-print_r($masyvas);
-echo '</pre>';
+// We use usort to define our custom rules
+usort($masyvas, function($a, $b) {
+    
+    // 1. Calculate divisors for both numbers using your function
+    $kiekisA = skaiciuokle($a);
+    $kiekisB = skaiciuokle($b);
+
+    // 2. Compare them for Descending order:
+    // If B has more divisors, return a positive number (moves A down)
+    // If A has more divisors, return a negative number (moves A up)
+    return $kiekisB <=> $kiekisA;
+});
+
+// echo '<pre>';
+
+foreach ($masyvas as $value) {
+    echo $value . ' -> dalikliai: ' . skaiciuokle($value) . '<br>';
+}
+
+
+// echo '</pre>';
