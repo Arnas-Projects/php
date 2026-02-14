@@ -1,118 +1,82 @@
 <?php
 
-echo '<body style="background-color: #444; color: white; font-size: 24px; line-height: 1.5;">';
+echo '<body style="background-color: #444; color: white; font-family: monospace; font-size: 24px; line-height: 1.5;">';
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 /*
-    1 užduotis
+    3 užduotis
 
-    Sugeneruokite masyvą iš 10 elementų, kurio elementai 
-    būtų masyvai iš 5 elementų su reikšmėmis nuo 5 iki 25.
-*/
-echo '<hr>1 užduotis<hr>';
-
-
-
-
-
-
-
-
-echo '<br><br>';
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-    2 užduotis - a)
-
-    Naudodamiesi 1 uždavinio masyvu: Suskaičiuokite kiek 
-    masyve yra elementų didesnių už 10;
-*/
-echo '<hr>2 užduotis - a)<hr>';
-
-
-
-
-
-
-
-
-echo '<br><br>';
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-    2 užduotis - b)
-
-    Raskite didžiausio elemento reikšmę;
-*/
-echo '<hr>2 užduotis - b)<hr>';
-
-
-
-
-
-
-
-
-echo '<br><br>';
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-    2 užduotis - c)
-
-    Suskaičiuokite kiekvieno antro lygio masyvų su 
-    vienodais indeksais sumas 
+    Sukurkite masyvą iš 10 elementų. 
     
-    (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.)
-*/
-echo '<hr>2 užduotis - c)<hr>';
-
-
-
-
-
-
-
-
-echo '<br><br>';
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-    2 užduotis - d)
-
-    Visus antro lygio masyvus “pailginkite” iki 7 elementų.
-*/
-echo '<hr>2 užduotis - d)<hr>';
-
-
-
-
-
-
-
-
-echo '<br><br>';
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-    2 užduotis - e)
-
-    Suskaičiuokite kiekvieno iš antro lygio masyvų 
-    elementų sumą atskirai ir sumas panaudokite 
-    kaip reikšmes sukuriant naują masyvą. 
+    Kiekvienas masyvo elementas turi būti masyvas 
+    su atsitiktiniu kiekiu nuo 2 iki 20 elementų. 
     
-    T.y. pirma naujo masyvo reikšmė turi būti lygi 
-    mažesnio masyvo, turinčio indeksą 0 dideliame 
-    masyve, visų elementų sumai.
-
+    Elementų reikšmės atsitiktinai parinktos raidės 
+    iš intervalo A-Z. Išrūšiuokite antro lygio 
+    masyvus pagal abėcėlę (t.y. tuos kur su raidėm).
 */
-echo '<hr>2 užduotis - e)<hr>';
+echo '<hr>3 užduotis<hr>';
+
+$arr = [];
+$raides = range('A', 'Z');
+
+for ($i = 0; $i < 10; $i++) {
+
+    for ($j = 0; $j < rand(2, 20); $j++) {
+        $arr[$i][] = $raides[array_rand($raides)];
+    }
+}
+
+echo '<pre>';
+print_r($arr);
+
+// Rūšiuojam pagal ABC
+echo '<br> Išrūšiuotas masyvas pagal ABC: <br>';
 
 
+foreach ($arr as &$subArr) {
+    usort($subArr, fn($a, $b) => $a <=> $b);
+}
+
+unset($subArr);
+
+print_r($arr);
 
 
+echo '<br><br>';
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+    4 užduotis
+
+    Išrūšiuokite trečio uždavinio pirmo lygio 
+    masyvą taip, kad elementai kurių masyvai 
+    trumpiausi eitų pradžioje. 
+    
+    Masyvai kurie turi bent vieną “K” raidę, 
+    visada būtų didžiojo masyvo visai pradžioje.
+*/
+echo '<hr>4 užduotis<hr>';
+
+usort($arr, function ($a, $b) {
+
+    $raideK_A = in_array('K', $a);
+    $raideK_B = in_array('K', $b);
+
+    if ($raideK_A && !$raideK_B) {
+        return -1;
+    }
+
+    if (!$raideK_A && $raideK_B) {
+        return 1;
+    }
+
+    return count($a) <=> count($b);
+});
+
+print_r($arr);
+
+
+echo '<br><br>';

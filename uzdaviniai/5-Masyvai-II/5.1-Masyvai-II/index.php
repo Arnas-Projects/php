@@ -131,11 +131,25 @@ echo '<br><br>';
 */
 echo '<hr>2 užduotis - d)<hr>';
 
+for ($i = 0; $i < count($arr); $i++) {
+
+    for ($j = 0; $j < 2; $j++) {
+        $arr[$i][] = rand(5, 25);
+    }
+}
+
+print_r($arr);
 
 
+// ALTERNATYVA
+// foreach($arr as $index => $subArr) {
 
+//     for ($j = 0; $j < 2; $j++) {
+//         $arr[$index][] = rand(5, 25);
+//     }
+// }
 
-
+// print_r($arr);
 
 
 echo '<br><br>';
@@ -152,6 +166,22 @@ echo '<br><br>';
     T.y. pirma naujo masyvo reikšmė turi būti lygi 
     mažesnio masyvo, turinčio indeksą 0 dideliame 
     masyve, visų elementų sumai.
-
 */
 echo '<hr>2 užduotis - e)<hr>';
+
+foreach ($arr as $subArr) {
+
+    $suma = 0;
+
+    foreach ($subArr as $value) {
+        $suma += $value;
+    }
+
+    echo $suma . '<br>';
+
+    $newArray[] = $suma;
+}
+
+echo '<br>';
+
+print_r($newArray);
