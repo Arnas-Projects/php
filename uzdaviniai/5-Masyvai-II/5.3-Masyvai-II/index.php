@@ -20,10 +20,20 @@ echo '<hr>5 užduotis<hr>';
 
 echo '<pre>';
 
+$arr = [];
 
+for ($i = 0; $i < 30; $i++) {
 
+    $user_id = rand(1, 1000000);
+    $place_in_row = rand(0, 100);
 
+    $arr[] = [
+        'user_id' => $user_id,
+        'place_in_row' => $place_in_row
+    ];
+}
 
+print_r($arr);
 
 echo '<br><br>';
 
@@ -40,12 +50,20 @@ echo '<br><br>';
 */
 echo '<hr>6 užduotis<hr>';
 
+usort($arr, function ($a, $b) {
 
+    return $a['user_id'] <=> $b['user_id'];
+});
 
+echo 'Sort pagal USER_ID (Didėjančia tvarka) <br>';
+print_r($arr);
 
+usort($arr, function ($a, $b) {
+    return $b['place_in_row'] <=> $a['place_in_row'];
+});
 
-
-
+echo '<br>Sort pagal PLACE_IN_ROW (Mažėjančia tvarka) <br>';
+print_r($arr);
 
 echo '<br><br>';
 
@@ -63,11 +81,27 @@ echo '<br><br>';
 */
 echo '<hr>7 užduotis<hr>';
 
+function randomString($length)
+{
+    $raides = array_merge(range('A', 'Z'), range('a', 'z'));
+    $string = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $string .= $raides[array_rand($raides)];
+    }
+
+    return $string;
+}
 
 
+foreach ($arr as &$subArr) {
 
+    $subArr['name'] = randomString(rand(5, 15));
+    $subArr['surname'] = randomString(rand(5, 15));
+}
 
+unset($subArr);
 
-
+print_r($arr);
 
 echo '<br><br>';
