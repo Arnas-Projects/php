@@ -29,7 +29,7 @@ class DB implements Data
         $this->table = $table;
     }
 
-    public function read() : array
+    public function read(): array
     {
         $sql = "
             SELECT *
@@ -43,7 +43,7 @@ class DB implements Data
         return $data;
     }
 
-    public function show(int $id) : object
+    public function show(int $id): object
     {
         $sql = "
             SELECT *
@@ -56,5 +56,43 @@ class DB implements Data
         $data = $stmt->fetch();
 
         return $data;
+    }
+
+    public function store(object $data): bool
+    {
+        $sql = "
+            INSERT INTO {$this->table} (date, title, content)
+            VALUES (?, ?, ?)
+        ";
+
+        $stmt = $this->pdo->prepare($sql); // vykdome paruošimą
+        $stmt->execute([$data->date, $data->title, $data->content]); // vykdome užklausą
+
+        return true;
+    }
+
+    public function destroy(int $id): bool
+    {
+        $sql = "
+            DELETE FROM {$this->table}
+            WHERE id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+
+        return true;
+    }
+
+    public function update(int $id, object $data): bool
+    {
+        $sql = "
+            UPDATE {$this->table}
+            SET date = ?, title = ?, content = ?
+            WHERE id = ?
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$data->date, $data->title, $data->content, $id]);
+
+        return true;
     }
 };

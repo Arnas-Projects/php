@@ -37,7 +37,13 @@ class App
 
         if ('GET' == $method && count($uri) == 1 && $uri[0] == '') {
             $noteController = new NoteController();
+            // paleidžia 2 konstruktorius
+            // Sukuria NoteController objektą
+            // NoteController objektą objekto viduje sukuria DB objektą
+
             return $noteController->home();
+            // kreipiasi į savo viduje esantį DB objekto read metodą, kad gautų duomenis
+            // gautus duomenis ir home template perduota App::view metodui
 
             // return (new NoteController())->home();
         }
@@ -50,14 +56,65 @@ class App
         }
 
         if ('GET' == $method && count($uri) == 1 && $uri[0] == 'create') {
-                return (new NoteController())->create();
-            }
-        
+            return (new NoteController())->create();
+        }
+
+        if ('GET' == $method && count($uri) == 2 && $uri[0] == 'delete') {
+            return (new NoteController())->delete($uri[1]);
+        }
+
+        if ('GET' == $method && count($uri) == 2 && $uri[0] == 'edit') {
+            return (new NoteController())->edit($uri[1]);
+        }
+
+        if ('POST' == $method && count($uri) == 1 && $uri[0] == 'store') {
+            return (new NoteController())->store();
+        }
+
+        if ('POST' == $method && count($uri) == 2 && $uri[0] == 'destroy') {
+            return (new NoteController())->destroy($uri[1]);
+        }
+
+        if ('POST' == $method && count($uri) == 2 && $uri[0] == 'update') {
+            // paleidžia 2 konstruktorius
+            // Sukuria NoteController objektą
+            // NoteController objektą objekto viduje sukuria DB objektą
+            // kreipiasi į savo viduje esantį update metodą ir perduoda id
+            return (new NoteController())->update($uri[1]);
+        }
     }
 
     public static function view(string $template, array $data = [])
     {
+        // gauna template ir duomenis iš kontrolerio
+        // duomenys yra masyvas
+        /*
+            pvz: žiūrėti note'ą
+            $data = [
+                'note' => {
+                    'date'-> 'asdadasd',
+                    'title'-> 'asdasdasd',
+                    'content'-> 'jsdfjdsfkasd'
+                }
+            ];
+
+            t.y. masyvas su viena reikšme. Reikšmės indeksas yra 'note', reikšmė yra objektas su 3 savybėm
+        */
         extract($data); // indeksai iš masyvo yra paverčiami atskirais kintamaisiais
+
+        // po to
+        // $note = {
+        // 
+        //          'date'-> 'asdadasd',
+        //          'title'-> 'asdasdasd',
+        //          'content'-> 'jsdfjdsfkasd'
+        //
+        //
+        //          }
+
+        // echo '<pre>';
+        // print_r($note);
+        // die;
 
         // start output buffering
         ob_start();
@@ -66,5 +123,16 @@ class App
         require self::DIR . 'view/bottom.php';
         // clear output buffer and return result
         return ob_get_clean();
+    }
+
+    public static function redirect(string $url)
+    {
+        // gaunam 'note/52'
+
+        header('Location: ' . self::URL . $url);
+
+        // susikonstravom Location: http://astro-project.go/note/52
+
+        return '';
     }
 }

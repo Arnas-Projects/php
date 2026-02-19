@@ -14,6 +14,8 @@
   --muted: #a4b2c6;
   --accent: #5cd6ff;
   --accent-strong: #8fe9ff;
+  --accent-danger: #ffb9b9;
+  --accent-danger-strong: #d38d8dc8;
 }
 
 * {
@@ -111,6 +113,7 @@ body {
 }
 
 .button {
+  font-family: Spectral;
   border: 1px solid var(--line);
   padding: 10px 20px;
   border-radius: 999px;
@@ -136,11 +139,23 @@ body {
   background: transparent;
 }
 
+.button.danger {
+  color: #ffb9b9;
+  border-color: rgba(255, 120, 120, 0.45);
+  background: linear-gradient(120deg, rgba(255, 110, 110, 0.22), rgba(255, 110, 110, 0.06));
+}
+
 .button:hover,
 .button:focus {
   transform: translateY(-2px);
   border-color: var(--accent);
   color: var(--accent);
+}
+
+.button.danger:hover,
+.button.danger:focus {
+  border-color: var(--accent-danger);
+  color: var(--accent-danger-strong);
 }
 
 .notes {
@@ -195,6 +210,11 @@ body {
   font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.note-link.red {
+  color: #ff8b8b;
+  font-size: 0.7rem;
 }
 
 .note-detail,
