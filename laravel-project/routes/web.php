@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BebrasController;
 use App\Http\Controllers\BarsukasController;
+use App\Http\Controllers\BgColor;
 use App\Http\Controllers\SumController;
 
 /*
@@ -54,3 +55,5 @@ Route::get('/suma/{num1}/{num2}', [SumController::class, 'sumuoti']);
     Sukurti input'ą ir mygtuką. 
     Įrašius spalvą į input ir paspaudus mygtuką background'o spalva pasikeičia į tą, kuri įrašyta input tag'e.
 */
+
+Route::get('/background/{color}', [BgColor::class, 'dyeBackground']);
