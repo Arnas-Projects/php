@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BebrasController;
 use App\Http\Controllers\BarsukasController;
 use App\Http\Controllers\BgColor;
+use App\Http\Controllers\Comparator;
+use App\Http\Controllers\Comparator2;
 use App\Http\Controllers\SumController;
 
 /*
@@ -57,3 +59,13 @@ Route::get('/suma/{num1}/{num2}', [SumController::class, 'sumuoti']);
 */
 
 Route::get('/background/{color}', [BgColor::class, 'dyeBackground']);
+
+/*
+    Sukurti programą, kuri palygintų du skaičius ir išvestų atsakymą kuris yra didesnis.
+    Jeigu skaičiai vienodi, išvesti atsakymą, kad skaičiai yra lygūs.
+    compare/15/8
+*/
+
+Route::get('/compare/{sk1}/{sk2}', [Comparator::class, 'compareNumbers']);
+
+Route::get('/compare2/{num1}/{num2}', [Comparator2::class, 'compareNumbers2']);
