@@ -8,6 +8,7 @@ use App\Http\Controllers\Comparator;
 use App\Http\Controllers\Comparator2;
 use App\Http\Controllers\SumController;
 use App\Http\Controllers\BijunasController as B; // sutrumpinam iki B
+use App\Http\Controllers\FormController as Form;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,3 +73,7 @@ Route::get('/compare/{sk1}/{sk2}', [Comparator::class, 'compareNumbers']);
 Route::get('/compare2/{num1}/{num2}', [Comparator2::class, 'compareNumbers2']);
 
 Route::get('/bijunas', [B::class, 'startas']);
+
+Route::get('/get', [Form::class, 'showGetForm']);
+
+Route::get('/get/{d1}/{d2}', [Form::class, 'showSumFromGet']);
