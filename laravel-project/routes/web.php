@@ -7,6 +7,7 @@ use App\Http\Controllers\BgColor;
 use App\Http\Controllers\Comparator;
 use App\Http\Controllers\Comparator2;
 use App\Http\Controllers\SumController;
+use App\Http\Controllers\BijunasController as B; // sutrumpinam iki B
 
 /*
 |--------------------------------------------------------------------------
@@ -69,3 +70,5 @@ Route::get('/background/{color}', [BgColor::class, 'dyeBackground']);
 Route::get('/compare/{sk1}/{sk2}', [Comparator::class, 'compareNumbers']);
 
 Route::get('/compare2/{num1}/{num2}', [Comparator2::class, 'compareNumbers2']);
+
+Route::get('/bijunas', [B::class, 'startas']);
