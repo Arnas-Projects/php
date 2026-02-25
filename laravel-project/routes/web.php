@@ -76,4 +76,11 @@ Route::get('/bijunas', [B::class, 'startas']);
 
 Route::get('/get', [Form::class, 'showGetForm']);
 
-Route::get('/get/{d1}/{d2}', [Form::class, 'showSumFromGet']);
+Route::get('/post', [Form::class, 'showPostForm']);
+
+Route::get('/get-result', [Form::class, 'showSumFromGet'])->name('jono_rezultatas'); // bus perduota ?a=8&b=9
+
+Route::post('/post-result', [Form::class, 'makeSumFromPost'])->name('formos-apdorojimas');
+Route::get('/post-result', [Form::class, 'showSumFromPost'])->name('rezultato-rodymas');
+
+Route::get('/sjadhaj34hjhdfjsh2354asdasd', [Form::class, 'fancy']);
