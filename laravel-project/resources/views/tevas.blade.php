@@ -8,6 +8,7 @@
     <title>@yield('pavadinimas')</title>
 </head>
 <body>
+    @include('errors')
     @yield('turinys')
 </body>
 </html>

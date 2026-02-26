@@ -9,6 +9,7 @@ use App\Http\Controllers\Comparator2;
 use App\Http\Controllers\SumController;
 use App\Http\Controllers\BijunasController as B; // sutrumpinam iki B
 use App\Http\Controllers\FormController as Form;
+use App\Http\Controllers\NamuDarbuController as ND;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,3 +116,16 @@ Route::get('/sjadhaj34hjhdfjsh2354asdasd', [Form::class, 'fancy']);
 
     PAPILDOMAI: Galima padaryti mygtuką, kuris viską ištrina
 */
+
+// 1 užduotis
+Route::get('/du-skaiciai', [ND::class, 'forma2Skaiciai']);
+Route::post('/du-skaiciai-rezultatas', [ND::class, 'formos2SkaiciaiApdorojimas'])->name('apdorojimas-2');
+Route::get('/du-skaiciai-rezultatas', [ND::class, 'formos2SkaiciaiRezultatas'])->name('rodymas-2');
+
+
+// 2 užduotis
+Route::get('/storage-skaiciai', [ND::class, 'formaStorage'])->name('home-forma');
+Route::post('/storage-skaiciai-rezultatas', [ND::class, 'formosStorageApdorojimas'])->name('apdorojimas-storage');
+Route::get('/storage-skaiciai-rezultatas', [ND::class, 'formosStorageRodymas'])->name('rodymas-storage');
+
+Route::post('/wipe-storage', [ND::class, 'formosStorageValymas'])->name('valymas-storage');
